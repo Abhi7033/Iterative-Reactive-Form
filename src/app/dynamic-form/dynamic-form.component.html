@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <h2>Iterative Reactive Form</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th (click)="sortTable('name')">Name</th>
+          <th (click)="sortTable('age')">Age</th>
+          <th>Cricket</th>
+          <th (click)="sortTable('dob')">DOB</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="formRows">
+        <tr *ngFor="let row of formRows.controls; let i = index" [formGroupName]="i">
+          <td>
+            <div class="form-group">
+              <input type="text" formControlName="name" class="form-control" placeholder="Enter name">
+              <div *ngIf="getControl(formRows, i, 'name')?.invalid && (getControl(formRows, i, 'name')?.dirty || getControl(formRows, i, 'name')?.touched)" class="invalid-feedback">
+                Name is required
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="number" formControlName="age" class="form-control" placeholder="Enter age">
+            </div>
+          </td>
+          <td class="checkbox">
+            <div class="form-group">
+              <input type="checkbox" formControlName="cricket">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="date" formControlName="dob" class="form-control">
+              <div *ngIf="getControl(formRows, i, 'dob')?.invalid && (getControl(formRows, i, 'dob')?.dirty || getControl(formRows, i, 'dob')?.touched)" class="invalid-feedback">
+                Date of Birth is required
+              </div>
+            </div>
+          </td>
+          <td class="actions">
+            <button *ngIf="formRows.length > 1" type="button" class="btn btn-danger" (click)="removeRow(i)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" (click)="addRow()" [disabled]="!isLastRowValid">Add Row</button>
+      <button type="submit" class="btn btn-success" [disabled]="!isFormValid">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="form.reset()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="getCsv()">Get CSV</button>
+    </div>
+  </form>
+</div>

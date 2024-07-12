@@ -1,0 +1,144 @@
+/* Variables */
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$danger-color: #dc3545;
+$success-color: #28a745;
+$bg-color: #f8f9fa;
+$font-color: #343a40;
+
+/* General Styles */
+.container {
+  max-width: 1000px; /* Increased max-width for a larger form */
+  margin: auto;
+  background-color: $bg-color;
+  padding: 40px; /* Increased padding for more spacing */
+  border-radius: 15px; /* Slightly larger border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: $primary-color;
+  margin-bottom: 30px; /* Increased margin bottom for more separation */
+  font-size: 28px; /* Increased font size for heading */
+}
+
+/* Table Styles */
+.table {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: $primary-color;
+  color: white;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: top;
+  padding: 15px; /* Increased padding for table cells */
+}
+
+.table td input,
+.table td select,
+.table td textarea {
+  padding: 10px; /* Increased padding for inputs and textareas */
+  font-size: 16px; /* Increased font size for inputs and textareas */
+  border: 1px solid #ccc; /* Default border color */
+  transition: border-color 0.15s ease-in-out; /* Smooth transition */
+}
+
+.table td input:focus,
+.table td select:focus,
+.table td textarea:focus {
+  border-color: $primary-color; /* Blue border color on focus */
+}
+
+.table td.actions {
+  padding: 10px; /* Adjust padding for action buttons */
+  text-align: center; /* Center align action buttons */
+}
+
+/* Checkbox Styles */
+.table td.checkbox {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  margin-top: 10px;
+}
+
+.table td.checkbox input[type="checkbox"] {
+  width: 15px; /* Adjust width of checkbox */
+  height: 15px; /* Adjust height of checkbox */
+  transform: scale(1.5); /* Increase the size of the checkbox */
+}
+
+/* Button Styles */
+button {
+  margin-right: 1rem; /* Increased margin for buttons */
+  padding: 10px 20px; /* Increased padding for buttons */
+  font-size: 16px; /* Increased font size for buttons */
+}
+
+.btn-primary,
+.btn-danger,
+.btn-success,
+.btn-secondary {
+  font-size: 16px; /* Increased font size for buttons */
+  padding: 10px 20px; /* Increased padding for buttons */
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
+  }
+}
+
+.btn-danger {
+  background-color: $danger-color;
+  border-color: $danger-color;
+  margin-top: 5px;
+
+  &:hover {
+    background-color: darken($danger-color, 10%);
+    border-color: darken($danger-color, 10%);
+  }
+}
+
+.btn-success {
+  background-color: $success-color;
+  border-color: $success-color;
+
+  &:hover {
+    background-color: darken($success-color, 10%);
+    border-color: darken($success-color, 10%);
+  }
+}
+
+.btn-secondary {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    border-color: darken($secondary-color, 10%);
+  }
+}
+
+.invalid-feedback {
+  color: #dc3545; /* Red color */
+  font-size: 80%; /* Optional: Adjust font size */
+  position: absolute;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem; /* Increased margin bottom for spacing between rows */
+}
